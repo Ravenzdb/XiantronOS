@@ -1,0 +1,10 @@
+packages:
+  - 'apps/*'
+  - 'core/*'
+  - 'services/*'
+  - 'agents/*'
+  - 'packages/*'
+  - 'ai/*'
+  - 'mobile/*'
+  - 'web/*'
+  - 'admin/*'
