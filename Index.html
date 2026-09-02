@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>XiantronOS — Transcendence</title>
-<meta name="description" content="XiantronOS Transcendence — Privacy by Design. V3 Raven Protocol active.">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<meta name="description" content="XiantronOS Transcendence — Privacy by Design. V3 Raven Protocol active worldwide.">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#05040a;--primary:#d4af5a;--glow:#8a7fcf;--gold:#e8c76a;--text:#F5F5F5;--muted:#888;--border:rgba(212,175,90,0.15)}
+:root{--bg:#05040a;--gold:#e8c76a;--gold2:#d4af5a;--violet:#8a7fcf;--text:#F5F5F5;--border:rgba(212,175,90,0.15)}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;height:100%;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,sans-serif;overflow:hidden;user-select:none}
 canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0}
@@ -15,10 +15,10 @@ canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0}
 .follower{position:fixed;width:28px;height:28px;border:1px solid rgba(212,175,90,.22);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
 .screen{position:fixed;inset:0;z-index:10;display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;opacity:0;transition:opacity 1s ease}
 .screen.active{display:flex;opacity:1}
-.card{background:rgba(15,13,30,0.55);border:1px solid var(--border);border-radius:16px;padding:22px;backdrop-filter:blur(12px)}
-button,.btn{background:transparent;border:1px solid rgba(212,175,90,0.35);color:var(--gold);padding:14px 36px;font-size:11px;letter-spacing:0.22em;border-radius:40px;cursor:pointer;text-decoration:none;transition:all 0.3s;font-family:'JetBrains Mono'}
-button:hover,.btn:hover{background:rgba(212,175,90,0.1);border-color:var(--gold);box-shadow:0 0 24px rgba(212,175,90,0.25)}
-#sound-toggle{position:fixed;bottom:28px;right:28px;z-index:50;width:42px;height:42px;border:1px solid rgba(212,175,90,0.2);border-radius:50%;display:none;align-items:center;justify-content:center;background:rgba(5,5,5,0.6);backdrop-filter:blur(8px)}
+.card{background:rgba(15,13,30,0.6);border:1px solid var(--border);border-radius:16px;padding:22px;backdrop-filter:blur(12px)}
+button,.btn{background:transparent;border:1px solid rgba(212,175,90,0.4);color:var(--gold);padding:14px 36px;font-size:11px;letter-spacing:0.22em;border-radius:40px;cursor:pointer;text-decoration:none;transition:all 0.3s;font-family:'JetBrains Mono',monospace}
+button:hover,.btn:hover{background:rgba(212,175,90,0.12);border-color:var(--gold);box-shadow:0 0 30px rgba(212,175,90,0.25)}
+#sound-toggle{position:fixed;bottom:28px;right:28px;z-index:50;width:42px;height:42px;border:1px solid rgba(212,175,90,0.22);border-radius:50%;display:none;align-items:center;justify-content:center;background:rgba(5,5,5,0.6);backdrop-filter:blur(8px)}
 </style>
 </head>
 <body>
@@ -26,16 +26,15 @@ button:hover,.btn:hover{background:rgba(212,175,90,0.1);border-color:var(--gold)
 <div class="cursor" id="cursor"></div>
 <div class="follower" id="follower"></div>
 
-<!-- WELCOME - BEHOLDER DIN ORIGINALE: TRANSCENDENCE - PRIVACY BY DESIGN -->
 <div id="welcome" class="screen active" style="background:#05040a;z-index:100">
   <div style="text-align:center;max-width:480px">
-    <div style="font-size:11px;letter-spacing:.45em;color:rgba(212,175,90,.6);margin-bottom:8px">XIANTRONOS</div>
-    <div style="font-size:9px;letter-spacing:.3em;color:rgba(138,127,207,.5);margin-bottom:28px;border:1px solid rgba(138,127,207,0.15);padding:4px 10px;border-radius:20px;display:inline-block">V3 • RAVEN PROTOCOL • ACTIVE WORLDWIDE</div>
-    <h1 style="font-size:clamp(1.8rem,5vw,2.8rem);font-weight:300;letter-spacing:.18em;margin-bottom:18px;font-family:Cinzel">TRANSCENDENCE</h1>
-    <p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.45);margin-bottom:48px;letter-spacing:.05em">Privacy by Design</p>
+    <div style="font-size:11px;letter-spacing:.45em;color:rgba(212,175,90,.65);margin-bottom:8px">XIANTRONOS</div>
+    <div style="font-size:8px;letter-spacing:.3em;color:rgba(138,127,207,.55);margin-bottom:28px;border:1px solid rgba(138,127,207,0.18);padding:5px 12px;border-radius:20px;display:inline-block">V3 • RAVEN PROTOCOL • ACTIVE WORLDWIDE</div>
+    <h1 style="font-size:clamp(1.8rem,5vw,2.8rem);font-weight:300;letter-spacing:.18em;margin-bottom:18px;font-family:Cinzel,serif">TRANSCENDENCE</h1>
+    <p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.45);margin-bottom:48px">Privacy by Design</p>
     <button id="enter-btn">ENTER</button>
   </div>
-  <div style="position:absolute;bottom:40px;font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,.25);text-align:center">Sound activates on enter<br><span style="color:rgba(212,175,90,.4)">The Raven has seen you</span></div>
+  <div style="position:absolute;bottom:40px;font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,.25);text-align:center">Sound activates on enter<br><span style="color:rgba(212,175,90,.45)">The Raven has seen you</span></div>
 </div>
 
 <div id="home" class="screen">
@@ -52,7 +51,7 @@ button:hover,.btn:hover{background:rgba(212,175,90,0.1);border-color:var(--gold)
 </div>
 
 <div id="observe" class="screen">
-  <div style="position:absolute;top:28px;left:40px;font-size:13px;letter-spacing:.28em;color:rgba(212,175,90,.7)">XIANTRONOS · OBSERVE</div>
+  <div style="position:absolute;top:28px;left:40px;font-size:12px;letter-spacing:.28em;color:rgba(212,175,90,.7)">XIANTRONOS · OBSERVE</div>
   <div style="position:absolute;top:28px;right:40px;font-size:11px;letter-spacing:.18em;color:rgba(255,255,255,.35)">01 / 04</div>
   <div style="text-align:center;max-width:680px;margin-bottom:30px">
     <div style="font-size:10px;letter-spacing:.35em;color:rgba(138,127,207,.7);margin-bottom:12px">THE RAVEN HAS SEEN YOU</div>
@@ -69,11 +68,11 @@ button:hover,.btn:hover{background:rgba(212,175,90,0.1);border-color:var(--gold)
 </div>
 
 <div id="trace" class="screen">
-  <div style="position:absolute;top:28px;left:40px;font-size:13px;letter-spacing:.28em;color:rgba(212,175,90,.7)">XIANTRONOS · TRACE</div>
+  <div style="position:absolute;top:28px;left:40px;font-size:12px;letter-spacing:.28em;color:rgba(212,175,90,.7)">XIANTRONOS · TRACE</div>
   <div style="position:absolute;top:28px;right:40px;font-size:11px;letter-spacing:.18em;color:rgba(255,255,255,.35)">02 / 04</div>
   <div style="text-align:center;max-width:560px;margin-bottom:36px">
-    <div style="font-size:12px;letter-spacing:.25em;color:rgba(138,127,207,.6);margin-bottom:16px">LAYER 02</div>
-    <h1 style="font-size:clamp(1.7rem,4.5vw,2.8rem);font-weight:300;letter-spacing:.1em;margin-bottom:14px;font-family:Cinzel">Follow the data trail</h1>
+    <div style="font-size:11px;letter-spacing:.25em;color:rgba(138,127,207,.6);margin-bottom:16px">LAYER 02</div>
+    <h1 style="font-size:clamp(1.7rem,4.5vw,2.8rem);font-weight:300;letter-spacing:.08em;margin-bottom:14px;font-family:Cinzel">Follow the data trail</h1>
     <p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.5)">Every click, scroll and hover leaves a signal. Here is how it typically flows.</p>
   </div>
   <div style="max-width:480px;width:100%;margin-bottom:40px">
@@ -86,11 +85,11 @@ button:hover,.btn:hover{background:rgba(212,175,90,0.1);border-color:var(--gold)
 </div>
 
 <div id="shield" class="screen">
-  <div style="position:absolute;top:28px;left:40px;font-size:13px;letter-spacing:.28em;color:rgba(212,175,90,.7)">XIANTRONOS · SHIELD</div>
+  <div style="position:absolute;top:28px;left:40px;font-size:12px;letter-spacing:.28em;color:rgba(212,175,90,.7)">XIANTRONOS · SHIELD</div>
   <div style="position:absolute;top:28px;right:40px;font-size:11px;letter-spacing:.18em;color:rgba(255,255,255,.35)">03 / 04</div>
   <div style="text-align:center;max-width:560px;margin-bottom:36px">
-    <div style="font-size:12px;letter-spacing:.25em;color:rgba(138,127,207,.6);margin-bottom:16px">LAYER 03</div>
-    <h1 style="font-size:clamp(1.7rem,4.5vw,2.8rem);font-weight:300;letter-spacing:.1em;margin-bottom:14px;font-family:Cinzel">Build real protection</h1>
+    <div style="font-size:11px;letter-spacing:.25em;color:rgba(138,127,207,.6);margin-bottom:16px">LAYER 03</div>
+    <h1 style="font-size:clamp(1.7rem,4.5vw,2.8rem);font-weight:300;letter-spacing:.08em;margin-bottom:14px;font-family:Cinzel">Build real protection</h1>
     <p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.5)">Practical steps you can take today.</p>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:520px;width:100%;margin-bottom:40px">
@@ -103,16 +102,16 @@ button:hover,.btn:hover{background:rgba(212,175,90,0.1);border-color:var(--gold)
 </div>
 
 <div id="transcend" class="screen">
-  <div style="position:absolute;top:28px;left:40px;font-size:13px;letter-spacing:.28em;color:rgba(212,175,90,.7)">XIANTRONOS · TRANSCEND</div>
+  <div style="position:absolute;top:28px;left:40px;font-size:12px;letter-spacing:.28em;color:rgba(212,175,90,.7)">XIANTRONOS · TRANSCEND</div>
   <div style="position:absolute;top:28px;right:40px;font-size:11px;letter-spacing:.18em;color:rgba(255,255,255,.35)">04 / 04</div>
   <div style="text-align:center;max-width:520px;margin-bottom:36px">
-    <div style="font-size:11px;letter-spacing:.3em;color:rgba(138,127,207,.6);margin-bottom:16px">V3 RAVEN PROTOCOL • GLOBAL</div>
+    <div style="font-size:10px;letter-spacing:.3em;color:rgba(138,127,207,.6);margin-bottom:16px">V3 RAVEN PROTOCOL • GLOBAL</div>
     <h1 style="font-size:clamp(1.7rem,4.5vw,2.6rem);font-weight:300;letter-spacing:.08em;margin-bottom:14px;font-family:Cinzel">You now see more<br>than most</h1>
     <p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.5)">The next layer is personal and optional. The colors have melted. You are transformed.</p>
   </div>
   <div class="card" style="max-width:400px;width:100%;padding:32px;text-align:center;border-color:rgba(212,175,90,.25)">
     <div style="font-size:11px;letter-spacing:.25em;color:#e8c76a;margin-bottom:10px">FULL ACCESS • TRANSCENDENCE</div>
-    <div style="font-size:28px;font-weight:300;margin-bottom:4px">149 NOK</div>
+    <div style="font-size:28px;font-weight:300;margin-bottom:4px;font-family:Cinzel">149 NOK</div>
     <div style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:24px">one-time · no subscription</div>
     <div style="text-align:left;font-size:13px;line-height:1.9;color:rgba(255,255,255,.75);margin-bottom:28px">
       → Personal tracking overview<br>
@@ -126,19 +125,15 @@ button:hover,.btn:hover{background:rgba(212,175,90,0.1);border-color:var(--gold)
 </div>
 
 <div id="sound-toggle">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e8c76a" stroke-width="1.5">
-    <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" opacity=".5"/>
-  </svg>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e8c76a" stroke-width="1.5"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" opacity=".5"/></svg>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
 (function(){
-  const AMBIENT_URL = "YOUR_AMBIENT_MP3_URL";
+  const AMBIENT_URL = "";
   let ambient = null, soundOn = false, audioCtx = null;
-  function initAudio(){ ambient = new Audio(AMBIENT_URL); ambient.loop = true; ambient.volume = 0; }
+  function initAudio(){ if(!AMBIENT_URL) return; ambient = new Audio(AMBIENT_URL); ambient.loop = true; ambient.volume = 0; }
   function playClick(){
     try{
       if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
@@ -153,11 +148,7 @@ button:hover,.btn:hover{background:rgba(212,175,90,0.1);border-color:var(--gold)
   function fadeAmbient(to, dur=2.2){
     if(!ambient) return;
     const start = ambient.volume, t0 = performance.now();
-    (function step(now){
-      const t = Math.min((now-t0)/(dur*1000),1);
-      ambient.volume = start + (to-start)*t;
-      if(t<1) requestAnimationFrame(step);
-    })(t0);
+    (function step(now){ const t = Math.min((now-t0)/(dur*1000),1); ambient.volume = start + (to-start)*t; if(t<1) requestAnimationFrame(step); })(t0);
   }
   const screens = ["welcome","home","observe","trace","shield","transcend"];
   function goTo(id){
@@ -172,6 +163,7 @@ button:hover,.btn:hover{background:rgba(212,175,90,0.1);border-color:var(--gold)
   const cur = document.getElementById("cursor"), fol = document.getElementById("follower");
   let cx=innerWidth/2, cy=innerHeight/2, tx=cx, ty=cy;
   window.addEventListener("mousemove", e=>{tx=e.clientX;ty=e.clientY});
+  window.addEventListener("touchmove", e=>{if(e.touches[0]){tx=e.touches[0].clientX;ty=e.touches[0].clientY}},{passive:true});
   function updCur(){cx+=(tx-cx)*0.14;cy+=(ty-cy)*0.14;cur.style.transform=`translate(${cx}px, ${cy}px) translate(-50%,-50%)`;fol.style.transform=`translate(${cx}px, ${cy}px) translate(-50%,-50%)`}
   let renderer, scene, camera, points, mat, geo, base, count, W, H, mx=0, my=0, tmx=0, tmy=0;
   function initThree(){
@@ -185,15 +177,13 @@ button:hover,.btn:hover{background:rgba(212,175,90,0.1);border-color:var(--gold)
     count = W<700?900:1800;
     const pos=new Float32Array(count*3), col=new Float32Array(count*3);
     base=new Float32Array(count*3);
-    // V3 MEKTIG: Gull + Lilla som smelter - det du elsker
     const c1=new THREE.Color(0xd4af5a), c2=new THREE.Color(0x8a7fcf), c3=new THREE.Color(0xf0d88a), c4=new THREE.Color(0x7a5af0);
     for(let i=0;i<count;i++){
       const i3=i*3,r=15+Math.random()*26,th=Math.random()*Math.PI*2,ph=Math.acos(2*Math.random()-1);
       pos[i3]=base[i3]=r*Math.sin(ph)*Math.cos(th);
       pos[i3+1]=base[i3+1]=r*Math.sin(ph)*Math.sin(th);
       pos[i3+2]=base[i3+2]=r*Math.cos(ph)*0.55;
-      const t=Math.random();
-      let cc;
+      const t=Math.random(); let cc;
       if(t<0.33) cc=c1.clone().lerp(c2,t*3);
       else if(t<0.66) cc=c2.clone().lerp(c3,(t-0.33)*3);
       else cc=c3.clone().lerp(c4,(t-0.66)*3);
@@ -224,23 +214,23 @@ button:hover,.btn:hover{background:rgba(212,175,90,0.1);border-color:var(--gold)
     const hints=[{t:"the raven has seen you",x:"14%",y:"18%"},{t:"gold and violet melting",x:"78%",y:"24%"},{t:"privacy by design",x:"12%",y:"72%"},{t:"connection is everything",x:"76%",y:"68%"},{t:"transcendence active",x:"50%",y:"12%"}];
     hints.forEach((h,i)=>{
       const el=document.createElement("div");
-      el.style.cssText=`position:fixed;left:${h.x};top:${h.y};transform:translate(-50%,-50%);font-size:11px;letter-spacing:.15em;color:rgba(212,175,90,0);opacity:0;transition:opacity 1.6s,color 1.6s;pointer-events:none;z-index:5;text-transform:uppercase`;
+      el.style.cssText=`position:fixed;left:${h.x};top:${h.y};transform:translate(-50%,-50%);font-size:11px;letter-spacing:.15em;color:rgba(212,175,90,0);opacity:0;transition:opacity 1.6s;pointer-events:none;z-index:5;text-transform:uppercase`;
       el.textContent=h.t;
       document.getElementById("home").appendChild(el);
-      setTimeout(()=>{el.style.opacity="0.5";el.style.color="rgba(212,175,90,.5)"},2200+i*1600);
+      setTimeout(()=>{el.style.opacity="0.55";el.style.color="rgba(212,175,90,.55)"},2200+i*1600);
     });
   }
   function revealEntry(){
     const yy1=document.getElementById("yy1"),yy2=document.getElementById("yy2"),yy3=document.getElementById("yy3"),yy4=document.getElementById("yy4");
     const arrow=document.getElementById("arrow"),hint=document.getElementById("hint");
-    yy1.style.opacity="0.65"; yy1.style.borderTopColor="rgba(212,175,90,.55)"; yy1.style.borderRightColor="rgba(212,175,90,.22)";
-    yy2.style.opacity="0.65"; yy2.style.borderBottomColor="rgba(138,127,207,.55)"; yy2.style.borderLeftColor="rgba(138,127,207,.22)";
-    yy3.style.opacity="0.45"; yy3.style.borderTopColor="rgba(212,175,90,.35)"; yy3.style.borderLeftColor="rgba(212,175,90,.18)";
-    yy4.style.opacity="0.45"; yy4.style.borderBottomColor="rgba(138,127,207,.35)"; yy4.style.borderRightColor="rgba(138,127,207,.15)";
+    yy1.style.opacity="0.7"; yy1.style.borderTopColor="rgba(212,175,90,.6)"; yy1.style.borderRightColor="rgba(212,175,90,.22)";
+    yy2.style.opacity="0.7"; yy2.style.borderBottomColor="rgba(138,127,207,.6)"; yy2.style.borderLeftColor="rgba(138,127,207,.22)";
+    yy3.style.opacity="0.5"; yy3.style.borderTopColor="rgba(212,175,90,.4)"; yy3.style.borderLeftColor="rgba(212,175,90,.18)";
+    yy4.style.opacity="0.5"; yy4.style.borderBottomColor="rgba(138,127,207,.4)"; yy4.style.borderRightColor="rgba(138,127,207,.15)";
     arrow.style.opacity="0.9"; arrow.style.transform="translateY(0) scale(1)";
     hint.style.opacity="0.7"; hint.style.color="rgba(212,175,90,.7)"; hint.style.transform="translateX(-50%) translateY(0)";
   }
-  function ready(cb){if(window.THREE&&window.gsap)return cb();setTimeout(()=>ready(cb),40)}
+  function ready(cb){if(window.THREE)return cb();setTimeout(()=>ready(cb),40)}
   ready(function(){
     initAudio();
     initThree();
@@ -251,12 +241,13 @@ button:hover,.btn:hover{background:rgba(212,175,90,0.1);border-color:var(--gold)
         document.getElementById("welcome").style.display="none";
         goTo("home");
         document.getElementById("sound-toggle").style.display="flex";
-        if(!soundOn){soundOn=true;ambient.play().catch(()=>{});fadeAmbient(0.3)}
+        if(ambient &&!soundOn){soundOn=true;ambient.play().catch(()=>{});fadeAmbient(0.3)}
         spawnHints();
         setTimeout(revealEntry, 9000);
       },900);
     });
     document.getElementById("sound-toggle").addEventListener("click",()=>{
+      if(!ambient) return;
       soundOn=!soundOn;
       if(soundOn){ambient.play().catch(()=>{});fadeAmbient(0.3)}
       else{fadeAmbient(0,1.1);setTimeout(()=>ambient.pause(),1200)}
@@ -269,4 +260,4 @@ button:hover,.btn:hover{background:rgba(212,175,90,0.1);border-color:var(--gold)
 })();
 </script>
 </body>
-    </html> 
+</html>
