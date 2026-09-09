@@ -1,0 +1,2 @@
+-- Initial schema must be generated and reviewed with Prisma before production application.
+-- Run prisma migrate dev locally; use prisma migrate deploy only in a controlled production job.

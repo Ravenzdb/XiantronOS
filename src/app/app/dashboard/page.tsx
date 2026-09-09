@@ -1,0 +1,1 @@
+import {Shell} from '@/components/marketing/Shell';export default function Dashboard(){return <Shell><main className="shell page"><span className="eyebrow">Beskyttet område</span><h1>Learning dashboard</h1><p className="lead">Krever aktiv sesjon. Server-side tilgangskontroll kobles til valgt autentiseringsleverandør før aktivering.</p></main></Shell>}

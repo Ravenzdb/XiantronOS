@@ -1,0 +1,1 @@
+export type MentorRequest={message:string;userId:string};export type MentorResponse={message:string};export interface AIProvider{chat(input:MentorRequest):Promise<MentorResponse>};export class DisabledAIProvider implements AIProvider{async chat(_input:MentorRequest){return {message:'AI Mentor is unavailable until a provider is securely configured.'}}}

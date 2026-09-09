@@ -1,0 +1,22 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") directUrl = env("DIRECT_URL") }
+enum PlanTier { BASIC PREMIUM PROFESSIONAL ENTERPRISE }
+enum OrganizationRole { OWNER ADMIN MANAGER MEMBER VIEWER }
+enum PurchaseStatus { PENDING PAID FAILED REFUNDED CANCELED }
+enum EntitlementSource { PLAN MARKETPLACE_PURCHASE ORGANIZATION MANUAL_GRANT }
+enum ConsentCategory { ESSENTIAL LEARNING AI_PERSONALIZATION ANALYTICS PARTNER_RECOMMENDATIONS MARKETING }
+model User { id String @id @default(cuid()) email String @unique createdAt DateTime @default(now()) profile Profile? subscriptions Subscription[] entitlements Entitlement[] consentPreferences ConsentPreference[] }
+model Profile { id String @id @default(cuid()) userId String @unique displayName String? user User @relation(fields:[userId],references:[id],onDelete:Cascade) }
+model Plan { id String @id @default(cuid()) tier PlanTier @unique subscriptions Subscription[] }
+model Subscription { id String @id @default(cuid()) userId String planId String stripeSubscriptionId String? @unique status String createdAt DateTime @default(now()) user User @relation(fields:[userId],references:[id]) plan Plan @relation(fields:[planId],references:[id]) }
+model Organization { id String @id @default(cuid()) name String members OrganizationMember[] }
+model OrganizationMember { id String @id @default(cuid()) organizationId String userId String role OrganizationRole organization Organization @relation(fields:[organizationId],references:[id],onDelete:Cascade) @@unique([organizationId,userId]) }
+model LearningPath { id String @id @default(cuid()) slug String @unique title String lessons Lesson[] }
+model Lesson { id String @id @default(cuid()) learningPathId String title String learningPath LearningPath @relation(fields:[learningPathId],references:[id],onDelete:Cascade) }
+model Mission { id String @id @default(cuid()) title String }
+model MarketplaceProduct { id String @id @default(cuid()) slug String @unique title String prices MarketplacePrice[] }
+model MarketplacePrice { id String @id @default(cuid()) productId String stripePriceId String? @unique amount Int? currency String @default("NOK") product MarketplaceProduct @relation(fields:[productId],references:[id],onDelete:Cascade) }
+model MarketplacePurchase { id String @id @default(cuid()) userId String stripeCheckoutSessionId String? @unique status PurchaseStatus @default(PENDING) }
+model Entitlement { id String @id @default(cuid()) userId String source EntitlementSource key String createdAt DateTime @default(now()) user User @relation(fields:[userId],references:[id],onDelete:Cascade) @@unique([userId,key]) }
+model ConsentPreference { id String @id @default(cuid()) userId String category ConsentCategory granted Boolean @default(false) updatedAt DateTime @updatedAt user User @relation(fields:[userId],references:[id],onDelete:Cascade) @@unique([userId,category]) }
+model AuditLog { id String @id @default(cuid()) actorId String? action String target String createdAt DateTime @default(now()) metadata Json? }

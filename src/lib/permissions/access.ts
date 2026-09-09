@@ -1,0 +1,1 @@
+export type Plan='BASIC'|'PREMIUM'|'PROFESSIONAL'|'ENTERPRISE';export const canManage=(plan:Plan)=>plan==='PROFESSIONAL'||plan==='ENTERPRISE';export const canAdministerOrganization=(plan:Plan,role?:'OWNER'|'ADMIN'|'MANAGER'|'MEMBER'|'VIEWER')=>plan==='ENTERPRISE'&&(role==='OWNER'||role==='ADMIN');

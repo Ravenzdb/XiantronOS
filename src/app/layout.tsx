@@ -1,0 +1,1 @@
+import './globals.css';import type {Metadata} from 'next';import type {ReactNode} from 'react';export const metadata:Metadata={title:'XiantronOS',description:'AI-powered learning for digital trust'};export default function RootLayout({children}:{children:ReactNode}){return <html lang="no"><body>{children}</body></html>}
